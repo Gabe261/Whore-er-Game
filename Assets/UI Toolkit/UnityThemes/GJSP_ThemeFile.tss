@@ -1,0 +1,49 @@
+@import url("UnityDefaultRuntimeTheme.tss");
+
+:root{
+    /* ----- Colors ----- */
+    /* Windows */
+    --colour-primary: #787878;
+    --colour-secondary: #606060;
+    --colour-background: rgba(108, 108, 108, 0.5);
+    /* Text */
+    --colour-text-primary: #ffffff;
+    --colour-text-secondary: #bfbfbf;
+    /* Buttons */
+    /* Buttons require:
+        - Fill, Outline, and Text colours 
+        - Secondary Fill, Outline, and Text colours 
+        - On Hover Fill, Outline, and Text colours 
+        - Secondary On Hover Fill, Outline, and Text colours 
+        - Disabled Fill, Outline, and Text colours 
+        - Secondary Disabled Fill, Outline, and Text colours 
+        
+        Should require 18 different variables
+    */
+    --colour-button-primary: #ff9c38;
+    --colour-button-secondary: #c6c6c6;
+
+    --colour-button-text-primary: #ffffff;
+    --colour-button-text-secondary: #000000;
+    
+    --colour-button-primary-border: #000000;
+    --colour-button-secondary-border: #000000;
+    
+    --colour-button-primary-hover: #ffae55;
+    --colour-button-secondary-hover: #ececec;
+
+    --colour-button-text-primary-hover: #ffffff;
+    --colour-button-text-secondary-hover: #000000;
+
+    --colour-button-primary-border-hover: #ffffff;
+    --colour-button-secondary-border-hover: #ffffff;
+
+    --colour-button-primary-disabled: #717171;
+    --colour-button-secondary-disabled: #717171;
+    
+    --colour-button-primary-text-disbaled: #424242;
+    --colour-button-secondary-text-disabled: #424242;
+    
+    --colour-button-primary-border-disbaled: #424242;
+    --colour-button-secondary-border-disabled: #424242;
+}
