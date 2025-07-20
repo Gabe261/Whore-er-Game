@@ -31,25 +31,23 @@ public class InteractionHandler : MonoBehaviour
     private void RaycastToCenter()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
         if (Physics.Raycast(ray, out hit, raycastDistance))
         {
             if (hit.transform.gameObject.TryGetComponent<Interactor>(out Interactor interactor))
             {
-                // Hits an interactor object
-                if(interactor == activeInteractor){ return;}
-                UpdateInteractorState(interactor);
+                if (interactor != activeInteractor)
+                {
+                    UpdateInteractorState(interactor); // Hits an interactor object
+                }
             }
             else
             {
-                // Hits non-Interactor collider
-                UpdateInteractorState(null);
+                UpdateInteractorState(null); // Hits non-Interactor collider
             }
         }
         else
         {
-            // Hits nothing
-            UpdateInteractorState(null);
+            UpdateInteractorState(null); // Hits nothing
         }
     }
 
@@ -57,16 +55,25 @@ public class InteractionHandler : MonoBehaviour
     // begun to hover over, is hovering over, or is exiting the object.
     private void UpdateInteractorState(Interactor newInteractor)
     {
-        if (activeInteractor == null && newInteractor != null)
+        if (activeInteractor == null && newInteractor != null) // Entering a new object
         {
             activeInteractor = newInteractor;
             activeInteractor.OnMouseEnter.Invoke(activeInteractor.gameObject);
+            return;
         } 
         
-        if (newInteractor == null && activeInteractor != null)
+        if (newInteractor == null && activeInteractor != null) // Exiting an object
         {
             activeInteractor.OnMouseExit.Invoke(activeInteractor.gameObject);
             activeInteractor = null;
+            return;
+        }
+        
+        if (newInteractor != null && activeInteractor != null) // Exiting an object to enter a new one
+        {
+            activeInteractor.OnMouseExit.Invoke(activeInteractor.gameObject);
+            activeInteractor = newInteractor;
+            activeInteractor.OnMouseEnter.Invoke(activeInteractor.gameObject);
         }
     }
 

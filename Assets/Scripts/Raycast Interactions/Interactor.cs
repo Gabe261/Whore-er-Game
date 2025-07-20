@@ -8,7 +8,7 @@ public class Interactor : MonoBehaviour
     private int interactionHoverCount = 0;
     
     // True if the player is actively hovering over an object.
-    public bool IsBeingHovered = false;
+    private bool isBeingHovered;
     
     // Unity Events for the interactions on the object
     public UnityEvent<GameObject> OnMouseEnter;
@@ -26,19 +26,40 @@ public class Interactor : MonoBehaviour
         OnMouseClick.AddListener(OnClick);
     }
     
+    // Clean up when this object is disabled.
+    private void OnDisable()
+    {
+        OnMouseEnter.RemoveListener(SetHoverStateActive);
+        OnMouseExit.RemoveListener(SetHoverStateInactive);
+        OnMouseClick.RemoveListener(OnClick);
+    }
+
+    // Has been hovered/clicked checks.
+    public bool HasBeenHovered()
+    {
+        if(interactionHoverCount > 0)
+            return true;
+        return false;
+    }
+    public bool HasBeenClicked()
+    {
+        if(interactionClickCount > 0)
+            return true;
+        return false;
+    }
+    
     // Mouse enter, exit, and click events listeners.
     private void SetHoverStateActive(GameObject interactor)
     {
-        IsBeingHovered = true;
+        isBeingHovered = true;
         interactionHoverCount++;
     }
     private void SetHoverStateInactive(GameObject interactor)
     {
-        IsBeingHovered = false;
+        isBeingHovered = false;
     }
     private void OnClick(GameObject interactor)
     {
-        Debug.Log("I got clicked! \"" + interactor.name + "\"");
         interactionClickCount++;
     }
 }

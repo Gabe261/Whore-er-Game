@@ -2,6 +2,10 @@
 
 :root{
     /* ----- Colors ----- */
+    /* Reticle */
+    --colour-reticle-color: #ffffff;
+    
+    
     /* Windows */
     --colour-primary: #787878;
     --colour-secondary: #606060;

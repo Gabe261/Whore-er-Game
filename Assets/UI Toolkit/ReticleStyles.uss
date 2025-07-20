@@ -1,0 +1,30 @@
+.reticle-window-container {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.reticle-base {
+    border-width: 4px;
+    border-color: var(--colour-reticle-color);
+    
+    transition: width 0.25s ease, height 0.25s ease, border-radius 0.25s ease;
+}
+
+.reticle-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+}
+
+.reticle-square {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.reticle-circle {
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+}

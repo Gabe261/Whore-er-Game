@@ -455,8 +455,9 @@ GameObject:
   m_Component:
   - component: {fileID: 128270876}
   - component: {fileID: 128270875}
+  - component: {fileID: 128270877}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,9 +475,9 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 0}
+  m_PanelSettings: {fileID: 11400000, guid: 7e4eb83f308a07e45b05fa9fbd148669, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 4e0d81822c665ce4697a3b5f0209f777, type: 3}
   m_SortingOrder: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
@@ -489,13 +490,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128270874}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.705418, y: 5.1111493, z: 11.408692}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 712404991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &128270877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128270874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72304e1f5edc8be46916fbc68d63973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &224252872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1317,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652508706}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &712404990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712404991}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712404991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712404990}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 128270876}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820993182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585fac936adcb944facaaa704c442714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBeingHovered: 0
   OnMouseEnter:
     m_PersistentCalls:
       m_Calls:
@@ -1825,6 +1869,7 @@ GameObject:
   - component: {fileID: 1371387214}
   - component: {fileID: 1371387213}
   - component: {fileID: 1371387212}
+  - component: {fileID: 1371387217}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1844,7 +1889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585fac936adcb944facaaa704c442714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBeingHovered: 0
   OnMouseEnter:
     m_PersistentCalls:
       m_Calls:
@@ -1979,6 +2023,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1371387217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371387211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1822a5e794db740b460c3f9f60b363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlighterMaterial: {fileID: 2100000, guid: 6d7b86e70427b8e40b1a4c3017b14ab3, type: 2}
+  originalMaterials: []
+  meshRenderer: {fileID: 0}
+  isHighlighted: 0
 --- !u!1 &1488349097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,7 +2071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585fac936adcb944facaaa704c442714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBeingHovered: 0
   OnMouseEnter:
     m_PersistentCalls:
       m_Calls:
@@ -2242,4 +2301,4 @@ SceneRoots:
   - {fileID: 1010323277}
   - {fileID: 224252876}
   - {fileID: 571926472}
-  - {fileID: 128270876}
+  - {fileID: 712404991}
