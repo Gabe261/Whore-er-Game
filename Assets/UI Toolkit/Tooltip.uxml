@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/TooltipStyles.uss?fileID=7433441132597879392&amp;guid=c63efe34f1f34374bb51e0fc6b9002fe&amp;type=3#TooltipStyles" />
+    <engine:VisualElement name="Container" class="tooltip-window-container">
+        <engine:VisualElement name="TooltipContainer" class="tooltip-container">
+            <engine:VisualElement name="TooltipIcon" class="tooltip-icon icon" />
+            <engine:VisualElement name="TooltipTextContainer" class="tooltip-text-container wazzaa">
+                <engine:Label text="Label" name="TooltipText" class="tooltip-text" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

@@ -1,0 +1,70 @@
+.tooltip-window-container {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container {
+    flex-direction: row;
+    width: 500px;
+    height: 40px;
+    border-width: 1px;
+    position: absolute;
+}
+
+.tooltip-icon {
+    flex-grow: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.tooltip-text-container {
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+    padding-left: 10px;
+    background-color: rgba(99, 99, 99, 0.39);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.tooltip-text {
+    color: var(--colour-tooltip-text);
+    font-size: 18px;
+}
+
+.icon {
+    background-image: url("project://database/Assets/Sprites/EKeyIcon.png?fileID=2800000&guid=08124b0359f285d4583bea93d3019700&type=3#EKeyIcon");
+}
+
+.tooltip-middle-center {
+    top: 600px;
+    left: 700px;
+}
+
+.tooltip-middle-bottom {
+    left: 920px;
+    top: 700px;
+}
+
+.tooltip-right-center {
+    top: 600px;
+    left: 920px;
+}
+
+.tooltip-right-bottom {
+    left: 920px;
+    top: 920px;
+}
+
+.tooltip-edge-center {
+    top: 600px;
+    left: 1350px;
+}
+
+.tooltip-edge-bottom {
+    left: 920px;
+    top: 1350px;
+}
