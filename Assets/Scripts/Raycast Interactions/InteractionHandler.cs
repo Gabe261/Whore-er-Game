@@ -19,12 +19,6 @@ public class InteractionHandler : MonoBehaviour
     private void Update()
     {
         RaycastToCenter();
-
-        // TODO: create input system
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            HandleClick();
-        }
     }
 
     // Shoots a raycast from the center of the screen and checks to see if it was an interactor object.
@@ -77,17 +71,26 @@ public class InteractionHandler : MonoBehaviour
         }
     }
 
-    // TODO: build input system and handle click and key presses though there.
-    private void HandleClick()
+    // Interaction methods. Called from input handler directly to highlighted interactor.
+    public void HandleClick()
     {
         if (activeInteractor != null)
         {
-            //Debug.Log("Mouse click interactor");
             activeInteractor.OnMouseClick.Invoke(activeInteractor.gameObject);
         }
-        else
+    }
+    public void InteractKeyPress()
+    {
+        if (activeInteractor != null)
         {
-            //Debug.Log("Mouse click null");
+            activeInteractor.OnInteractionKeyPressed?.Invoke(activeInteractor.gameObject);
+        }
+    }
+    public void AnyKeyPress(KeyCode key)
+    {
+        if (activeInteractor != null)
+        {
+            activeInteractor.OnCustomKeyPressed?.Invoke(activeInteractor.gameObject);
         }
     }
 }

@@ -1393,6 +1393,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &826400049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826400051}
+  - component: {fileID: 826400050}
+  m_Layer: 0
+  m_Name: Input Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &826400050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826400049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf73c59f3ed92d4b88cff3d7cefe9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseClickKey: 323
+  interactKey: 101
+  OnMouseDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 820993183}
+        m_TargetAssemblyTypeName: InteractionHandler, Assembly-CSharp
+        m_MethodName: HandleClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnInteractKeyDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 820993183}
+        m_TargetAssemblyTypeName: InteractionHandler, Assembly-CSharp
+        m_MethodName: InteractKeyPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAnyKeyDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 820993183}
+        m_TargetAssemblyTypeName: InteractionHandler, Assembly-CSharp
+        m_MethodName: AnyKeyPress
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &826400051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826400049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.4910402, y: 2.834538, z: 2.3107324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1610,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnInteractionKeyPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 499714260}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hasCustomKeyInteraction: 1
+  customInteractionKey: 271
+  OnCustomKeyPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!135 &901930634
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1869,7 +1980,6 @@ GameObject:
   - component: {fileID: 1371387214}
   - component: {fileID: 1371387213}
   - component: {fileID: 1371387212}
-  - component: {fileID: 1371387217}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1934,6 +2044,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnInteractionKeyPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  hasCustomKeyInteraction: 0
+  customInteractionKey: 0
+  OnCustomKeyPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1371387213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2023,22 +2141,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1371387217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371387211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1822a5e794db740b460c3f9f60b363, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlighterMaterial: {fileID: 2100000, guid: 6d7b86e70427b8e40b1a4c3017b14ab3, type: 2}
-  originalMaterials: []
-  meshRenderer: {fileID: 0}
-  isHighlighted: 0
 --- !u!1 &1488349097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,6 +2218,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnInteractionKeyPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  hasCustomKeyInteraction: 0
+  customInteractionKey: 0
+  OnCustomKeyPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1488349099
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2302,3 +2412,4 @@ SceneRoots:
   - {fileID: 224252876}
   - {fileID: 571926472}
   - {fileID: 712404991}
+  - {fileID: 826400051}
