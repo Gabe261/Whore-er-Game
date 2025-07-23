@@ -20,7 +20,13 @@ public class Interactor : MonoBehaviour
     [SerializeField] private KeyCode customInteractionKey;
     public UnityEvent<GameObject> OnCustomKeyPressed;
     
-    // list of reactions. All will be scriptable objects and link to another class. Highlight, Reticle change, tooltip
+    // The highlight profile, reticle shape, and tooltip profile.
+    [SerializeField] private HighlightProfileSO hoverHighlightProfile;
+    public bool hasHighlightProfile;
+    [SerializeField] private ReticleShapeTypes hoverReticleShape;
+    public bool hasReticleShape;
+    [SerializeField] private TooltipProfileSO hoverTooltipProfile;
+    public bool hasTooltipProfile;
     
     private void Awake()
     {
@@ -69,10 +75,42 @@ public class Interactor : MonoBehaviour
     {
         isBeingHovered = true;
         interactionHoverCount++;
+
+        if (GetHighlightProfile() != null)
+        {
+            InteractorHighlightHelper highlightHelper = FindFirstObjectByType<InteractorHighlightHelper>();
+            highlightHelper.StartInteractorHighlight(this.gameObject, GetHighlightProfile());
+        }
+
+        if (GetReticleShape() != ReticleShapeTypes.None)
+        {
+            Reticle reticle = FindFirstObjectByType<Reticle>();
+            reticle.SetReticleShape(GetReticleShape());
+        }
+
+        if (GetTooltipProfile() != null)
+        {
+            Tooltip tooltip = FindFirstObjectByType<Tooltip>();
+            tooltip.HandleDisplayContent(GetTooltipProfile());
+        }
     }
     private void SetHoverStateInactive(GameObject interactor)
     {
         isBeingHovered = false;
+        if (GetHighlightProfile() != null)
+        {
+            InteractorHighlightHelper highlightHelper = FindFirstObjectByType<InteractorHighlightHelper>();
+            highlightHelper.StopInteractorHighlight(this.gameObject);
+        }
+        
+        Reticle reticle = FindFirstObjectByType<Reticle>();
+        reticle.SetReticleShape(ReticleShapeTypes.Dot);
+        
+        if (GetTooltipProfile() != null)
+        {
+            Tooltip tooltip = FindFirstObjectByType<Tooltip>();
+            tooltip.Hide();
+        }
     }
     private void OnClick(GameObject interactor)
     {
@@ -88,5 +126,22 @@ public class Interactor : MonoBehaviour
     {
         if(!hasCustomKeyInteraction) { return; }
         // Pressed the selected custom interaction button while hovering on the object.
+    }
+    
+    // Get hover profiles
+    public HighlightProfileSO GetHighlightProfile()
+    {
+        if(!hasHighlightProfile) { return null; }
+        return hoverHighlightProfile;
+    }
+    public ReticleShapeTypes GetReticleShape()
+    {
+        if(!hasReticleShape) { return ReticleShapeTypes.None; }
+        return hoverReticleShape;
+    }
+    public TooltipProfileSO GetTooltipProfile()
+    {
+        if(!hasTooltipProfile) { return null; }
+        return hoverTooltipProfile;
     }
 }

@@ -26,7 +26,9 @@ public class Reticle : MonoBehaviour
     public void SetReticleShape(ReticleShapeTypes reticleShapeType)
     {
         RemoveAllReticleStyles();
+        if(reticleShapeType == ReticleShapeTypes.None) { Hide(); return; }
         reticle.AddToClassList(reticleShapeDictionary[reticleShapeType]);
+        Show();
     }
     
     /// <summary>
@@ -37,5 +39,14 @@ public class Reticle : MonoBehaviour
         reticle.RemoveFromClassList(reticleShapeDictionary[ReticleShapeTypes.Dot]);
         reticle.RemoveFromClassList(reticleShapeDictionary[ReticleShapeTypes.Circle]);
         reticle.RemoveFromClassList(reticleShapeDictionary[ReticleShapeTypes.Square]);
+    }
+
+    private void Show()
+    {
+        root.style.display = DisplayStyle.Flex;
+    }
+    private void Hide()
+    {
+        root.style.display = DisplayStyle.None;
     }
 }

@@ -1613,24 +1613,18 @@ MonoBehaviour:
         m_CallState: 2
   OnInteractionKeyPressed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 499714260}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   hasCustomKeyInteraction: 1
-  customInteractionKey: 271
+  customInteractionKey: 0
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
+  hoverHighlightProfile: {fileID: 11400000, guid: a3f39ef2682844040b703e141bbf1b99, type: 2}
+  hasHighlightProfile: 1
+  hoverReticleShape: 1
+  hasReticleShape: 1
+  hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
+  hasTooltipProfile: 0
 --- !u!135 &901930634
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1675,7 +1669,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ed283cde3f13b5a40ae1eb46f14b5544, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2079,18 +2073,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1358152504}
-        m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
-        m_MethodName: HandleDisplayContent
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
-          m_ObjectArgumentAssemblyTypeName: TooltipProfileSO, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   OnMouseClick:
     m_PersistentCalls:
       m_Calls:
@@ -2121,18 +2103,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1358152504}
-        m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
-        m_MethodName: Hide
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnInteractionKeyPressed:
     m_PersistentCalls:
       m_Calls: []
@@ -2141,6 +2111,12 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
+  hoverHighlightProfile: {fileID: 11400000, guid: a8ffeba1825740d4fb7aabbaa69a0ab8, type: 2}
+  hasHighlightProfile: 1
+  hoverReticleShape: 1
+  hasReticleShape: 1
+  hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
+  hasTooltipProfile: 0
 --- !u!65 &1371387213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2277,18 +2253,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1728043544}
-        m_TargetAssemblyTypeName: InteractorHighlightHelper, Assembly-CSharp
-        m_MethodName: StartInteractorHighlight
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   OnMouseClick:
     m_PersistentCalls:
       m_Calls:
@@ -2319,18 +2283,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1728043544}
-        m_TargetAssemblyTypeName: InteractorHighlightHelper, Assembly-CSharp
-        m_MethodName: StopInteractorHighlight
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnInteractionKeyPressed:
     m_PersistentCalls:
       m_Calls: []
@@ -2339,6 +2291,12 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
+  hoverHighlightProfile: {fileID: 11400000, guid: 8c977d34769aaec4faf93736c575747e, type: 2}
+  hasHighlightProfile: 1
+  hoverReticleShape: 2
+  hasReticleShape: 1
+  hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
+  hasTooltipProfile: 0
 --- !u!136 &1488349099
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2385,7 +2343,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4345cb64c2877f24f9825aa670f2b06b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2459,7 +2417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc7c9739eb529048a0ef4a6c584a11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightProfile: {fileID: 11400000, guid: 8c977d34769aaec4faf93736c575747e, type: 2}
 --- !u!4 &1728043545
 Transform:
   m_ObjectHideFlags: 0

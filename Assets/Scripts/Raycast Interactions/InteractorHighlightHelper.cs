@@ -4,15 +4,58 @@ using UnityEngine;
 
 public class InteractorHighlightHelper : MonoBehaviour
 {
-
-    [SerializeField] private HighlightProfileSO highlightProfile;
     private Dictionary<Interactor, Coroutine> interactorDictionary;
 
     private void Start()
     {
         interactorDictionary = new Dictionary<Interactor, Coroutine>();
     }
+    
+    public void StartInteractorHighlight(GameObject gameObject, HighlightProfileSO highlightProfile)
+    {
+        Coroutine objectsHighlightCoroutine = null;
 
+        if (gameObject.TryGetComponent(out Interactor interactor))
+        {
+            if (interactorDictionary.ContainsKey(interactor)) { Debug.Log("Already highlighting"); return; }
+            objectsHighlightCoroutine = StartCoroutine(HighlightObject(interactor, highlightProfile));
+            interactorDictionary.Add(interactor, objectsHighlightCoroutine);
+        }
+    }
+
+    private IEnumerator HighlightObject(Interactor interactor, HighlightProfileSO highlightProfile)
+    {
+        Material material = interactor.gameObject.GetComponent<MeshRenderer>().material;
+        highlightProfile.originalColor = material.color;
+
+        yield return new WaitForEndOfFrame();
+
+        float duration = highlightProfile.speed;
+        Color originalColor = material.color;
+        Color targetColor = highlightProfile.color;
+        float elapsedTime = 0f;
+
+        int returnRate = 0;
+        
+        bool doLoop = true;
+        while (doLoop)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            material.color = Color.Lerp(originalColor, targetColor, t);
+            yield return null;
+            if (elapsedTime >= duration)
+            {
+                elapsedTime = 0f;
+                Color tempColor = originalColor;
+                originalColor = targetColor;
+                targetColor = tempColor;
+                returnRate++;
+                if(!highlightProfile.isBlinking && returnRate >= 2) { doLoop = false; }
+            }
+        }
+    }
+    
     public void StopInteractorHighlight(GameObject gameObject)
     {
         if (gameObject.TryGetComponent(out Interactor interactor))
@@ -30,71 +73,12 @@ public class InteractorHighlightHelper : MonoBehaviour
                 
                 interactorDictionary.Remove(interactor);
                 Material material = interactor.gameObject.GetComponent<MeshRenderer>().material;
-                material.color = new Color(1,1,1,1);
+                material.color = interactor.GetHighlightProfile().originalColor;
             }
             else
             {
                 Debug.Log("Interactor is not highlighting");
             }
         }
-    }
-
-    public void StartInteractorHighlight(GameObject gameObject)
-    {
-        StartInteractorHighlight(gameObject, highlightProfile);
-    }
-    
-    public void StartInteractorHighlight(GameObject gameObject, HighlightProfileSO highlightProfile)
-    {
-        Coroutine objectsHighlightCoroutine = null;
-
-        if (gameObject.TryGetComponent(out Interactor interactor))
-        {
-            if (interactorDictionary.ContainsKey(interactor))
-            {
-                Debug.Log("Already highlighting");
-                return;
-            }
-            
-            if (highlightProfile.isBlinking)
-            {
-                objectsHighlightCoroutine = StartCoroutine(BlinkingHighlight(interactor, highlightProfile));
-            }
-            else
-            {
-                objectsHighlightCoroutine = StartCoroutine(SingleHighlight(interactor, highlightProfile));
-            }
-            
-            interactorDictionary.Add(interactor, objectsHighlightCoroutine);
-        }
-    }
-
-    private IEnumerator BlinkingHighlight(Interactor interactor, HighlightProfileSO highlightProfile)
-    {
-        Material material = interactor.gameObject.GetComponent<MeshRenderer>().material;
-
-        bool flip = false;
-        float blueValue = 1;
-        while (true)
-        {
-            material.color = new Color(1, 1, blueValue);
-            yield return new WaitForSeconds(0.01f);
-            
-            if (flip)
-            {
-                blueValue += 0.05f;
-                if (blueValue > 1) { flip = false; }
-            }
-            else
-            {
-                blueValue -= 0.05f;
-                if (blueValue < 0){ flip = true; }
-            }
-        }
-    }
-
-    private IEnumerator SingleHighlight(Interactor interactor, HighlightProfileSO highlightProfile)
-    {
-        yield return new WaitForSeconds(0.5f);
     }
 }
