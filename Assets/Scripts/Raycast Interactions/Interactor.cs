@@ -10,6 +10,10 @@ public class Interactor : MonoBehaviour
     // True if the player is actively hovering over an object.
     private bool isBeingHovered;
     
+    // TODO: Make events pass a list of GameObjects so that multiple game objects
+    // can be referenced for highlight effects. Also allow for interactor parent
+    // reference for nested interactors.
+    
     // Unity Events for the interactions on the object
     public UnityEvent<GameObject> OnMouseEnter;
     public UnityEvent<GameObject> OnMouseClick;
@@ -76,6 +80,8 @@ public class Interactor : MonoBehaviour
         isBeingHovered = true;
         interactionHoverCount++;
 
+        // TODO: Initialize highlight helper, reticle, and tooltip on start/awake. 
+        
         if (GetHighlightProfile() != null)
         {
             InteractorHighlightHelper highlightHelper = FindFirstObjectByType<InteractorHighlightHelper>();
@@ -96,6 +102,8 @@ public class Interactor : MonoBehaviour
     }
     private void SetHoverStateInactive(GameObject interactor)
     {
+        // TODO: Same as the SetHoverStateActive, get references on start/awake
+        
         isBeingHovered = false;
         if (GetHighlightProfile() != null)
         {
