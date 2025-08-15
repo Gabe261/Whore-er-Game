@@ -75,7 +75,7 @@ public class InteractorHighlightHelper : MonoBehaviour
             interactorDictionary.Remove(interactor);
             foreach (Material material in interactor.GetMaterials())
             {
-                material.color = interactor.GetHighlightProfile().originalColor;
+                // material.color = interactor.GetHighlightProfile().originalColor;
             }
         }
         else

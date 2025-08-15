@@ -1903,12 +1903,7 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 11400000, guid: e502c1afc41e0d043a4237d20ffc7ea6, type: 2}
-  hasHighlightProfile: 1
-  hoverReticleProfile: {fileID: 11400000, guid: e473ef4f68123a046bf0e9a9eecebc25, type: 2}
-  hasReticleProfile: 1
-  hoverTooltipProfile: {fileID: 0}
-  hasTooltipProfile: 0
+  hoverEffects: []
 --- !u!65 &532195745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1996,12 +1991,7 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 11400000, guid: e502c1afc41e0d043a4237d20ffc7ea6, type: 2}
-  hasHighlightProfile: 1
-  hoverReticleProfile: {fileID: 0}
-  hasReticleProfile: 0
-  hoverTooltipProfile: {fileID: 0}
-  hasTooltipProfile: 0
+  hoverEffects: []
 --- !u!65 &543509716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9898,12 +9888,7 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 11400000, guid: a3f39ef2682844040b703e141bbf1b99, type: 2}
-  hasHighlightProfile: 1
-  hoverReticleProfile: {fileID: 0}
-  hasReticleProfile: 0
-  hoverTooltipProfile: {fileID: 0}
-  hasTooltipProfile: 0
+  hoverEffects: []
 --- !u!65 &1926109244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11927,12 +11912,7 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 0}
-  hasHighlightProfile: 0
-  hoverReticleProfile: {fileID: 0}
-  hasReticleProfile: 0
-  hoverTooltipProfile: {fileID: 0}
-  hasTooltipProfile: 0
+  hoverEffects: []
 --- !u!4 &4493850222899821106
 Transform:
   m_ObjectHideFlags: 0
@@ -12011,12 +11991,8 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 0}
-  hasHighlightProfile: 0
-  hoverReticleProfile: {fileID: 11400000, guid: 66007bdef61778b4bab4c19075a94138, type: 2}
-  hasReticleProfile: 1
-  hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
-  hasTooltipProfile: 1
+  hoverEffects:
+  - {fileID: 11400000, guid: a8ffeba1825740d4fb7aabbaa69a0ab8, type: 2}
 --- !u!1 &4641009354278331017
 GameObject:
   m_ObjectHideFlags: 0
@@ -12086,12 +12062,8 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 11400000, guid: a8ffeba1825740d4fb7aabbaa69a0ab8, type: 2}
-  hasHighlightProfile: 1
-  hoverReticleProfile: {fileID: 11400000, guid: a455077e12a574d43b5836bb627a8bd2, type: 2}
-  hasReticleProfile: 1
-  hoverTooltipProfile: {fileID: 0}
-  hasTooltipProfile: 0
+  hoverEffects:
+  - {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
 --- !u!1 &5014776879839693742
 GameObject:
   m_ObjectHideFlags: 0
@@ -12265,12 +12237,7 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 0}
-  hasHighlightProfile: 0
-  hoverReticleProfile: {fileID: 0}
-  hasReticleProfile: 0
-  hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
-  hasTooltipProfile: 1
+  hoverEffects: []
 --- !u!4 &5672239627691321779
 Transform:
   m_ObjectHideFlags: 0
@@ -12367,12 +12334,7 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 0}
-  hasHighlightProfile: 0
-  hoverReticleProfile: {fileID: 11400000, guid: 66007bdef61778b4bab4c19075a94138, type: 2}
-  hasReticleProfile: 1
-  hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
-  hasTooltipProfile: 1
+  hoverEffects: []
 --- !u!1 &5923997858967748753
 GameObject:
   m_ObjectHideFlags: 0
@@ -12647,12 +12609,8 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 11400000, guid: a3f39ef2682844040b703e141bbf1b99, type: 2}
-  hasHighlightProfile: 1
-  hoverReticleProfile: {fileID: 11400000, guid: e473ef4f68123a046bf0e9a9eecebc25, type: 2}
-  hasReticleProfile: 1
-  hoverTooltipProfile: {fileID: 0}
-  hasTooltipProfile: 0
+  hoverEffects:
+  - {fileID: 11400000, guid: a455077e12a574d43b5836bb627a8bd2, type: 2}
 --- !u!4 &7166262163679228911
 Transform:
   m_ObjectHideFlags: 0
@@ -12790,12 +12748,8 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 11400000, guid: a8ffeba1825740d4fb7aabbaa69a0ab8, type: 2}
-  hasHighlightProfile: 1
-  hoverReticleProfile: {fileID: 11400000, guid: 1b7d1f13bb30796458bc2dd1f74532f9, type: 2}
-  hasReticleProfile: 1
-  hoverTooltipProfile: {fileID: 0}
-  hasTooltipProfile: 0
+  hoverEffects:
+  - {fileID: 11400000, guid: 8c977d34769aaec4faf93736c575747e, type: 2}
 --- !u!1 &8119819836517565447
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,35 +28,11 @@ public class InteractorEditor : Editor
         EditorGUILayout.LabelField("On Hover Effects", EditorStyles.boldLabel);
         
         EditorGUILayout.LabelField("Choose hover effects for this object:", EditorStyles.label);
-        SerializedProperty hasHighlights = serializedObject.FindProperty("hasHighlightProfile");
-        SerializedProperty hasReticle = serializedObject.FindProperty("hasReticleProfile");
-        SerializedProperty hasTooltip = serializedObject.FindProperty("hasTooltipProfile");
-        
-        SerializedProperty highlightProfile = serializedObject.FindProperty("hoverHighlightProfile");
-        SerializedProperty reticleProfile = serializedObject.FindProperty("hoverReticleProfile");
-        SerializedProperty tooltipProfile = serializedObject.FindProperty("hoverTooltipProfile");
-        
-        EditorGUILayout.BeginHorizontal();
-        hasHighlights.boolValue = GUILayout.Toggle(hasHighlights.boolValue, "Highlight", "Button");
-        hasReticle.boolValue = GUILayout.Toggle(hasReticle.boolValue, "Reticle Change",   "Button");
-        hasTooltip.boolValue = GUILayout.Toggle(hasTooltip.boolValue, "Show Tooltip",   "Button");
-        EditorGUILayout.EndHorizontal();
+        SerializedProperty hoverEffectsProp = serializedObject.FindProperty("hoverEffects");
+        EditorGUILayout.PropertyField(hoverEffectsProp, new GUIContent("Hover Effects"), true);
         
         EditorGUILayout.Space(5);
-        if (hasHighlights.boolValue)
-        {
-            EditorGUILayout.PropertyField(highlightProfile);
-            EditorGUILayout.Space(2);
-        }
-        if (hasReticle.boolValue)
-        {
-             EditorGUILayout.PropertyField(reticleProfile);
-             EditorGUILayout.Space(2);
-        }
-        if (hasTooltip.boolValue)
-        {
-            EditorGUILayout.PropertyField(tooltipProfile);
-        }
+        
         
         EditorGUILayout.EndVertical(); // Hover effects Box ============================================================
 

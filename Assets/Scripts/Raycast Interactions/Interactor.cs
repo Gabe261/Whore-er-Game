@@ -25,17 +25,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private KeyCode customInteractionKey;
     public UnityEvent<GameObject> OnCustomKeyPressed;
     
-    // The highlight profile, reticle shape, and tooltip profile.
-    [SerializeField] private HighlightProfileSO hoverHighlightProfile;
-    public bool hasHighlightProfile;
-    [SerializeField] private ReticleProfileSO hoverReticleProfile;
-    public bool hasReticleProfile;
-    [SerializeField] private TooltipProfileSO hoverTooltipProfile;
-    public bool hasTooltipProfile;
-
-    private InteractorHighlightHelper highlightHelper;
-    private Reticle reticle;
-    private Tooltip tooltip;
+    [SerializeField] private List<BaseEffectProfileSO> hoverEffects = new List<BaseEffectProfileSO>();
     
     private List<MeshRenderer> meshRenderers;
     
@@ -54,10 +44,6 @@ public class Interactor : MonoBehaviour
         
         OnInteractionKeyPressed.AddListener(InteractionKeyPressed);
         OnCustomKeyPressed.AddListener(CustomKeyPressed);
-        
-        highlightHelper = FindFirstObjectByType<InteractorHighlightHelper>();
-        reticle = FindFirstObjectByType<Reticle>();
-        tooltip = FindFirstObjectByType<Tooltip>();
 
         meshRenderers = new List<MeshRenderer>();
         if (TryGetComponent<MeshRenderer>(out MeshRenderer meshRenderer))
@@ -115,42 +101,21 @@ public class Interactor : MonoBehaviour
     {
         isBeingHovered = true;
         interactionHoverCount++;
-
-        // TODO: Initialize highlight helper, reticle, and tooltip on start/awake. 
         
-        if (GetHighlightProfile() != null)
+        if(hoverEffects.Count == 0) { return; }
+        foreach (BaseEffectProfileSO effect in hoverEffects)
         {
-            highlightHelper.StartInteractorHighlight(this, GetHighlightProfile());
-        }
-
-        if (GetReticleShape() != null)
-        {
-            reticle.SetReticleShape(GetReticleShape());
-        }
-
-        if (GetTooltipProfile() != null)
-        {
-            tooltip.HandleDisplayContent(GetTooltipProfile());
+            effect.ToggleExecuteAction(true, this);
         }
     }
     private void SetHoverStateInactive(GameObject interactor)
     {
-        // TODO: Same as the SetHoverStateActive, get references on start/awake
-        
         isBeingHovered = false;
-        if (GetHighlightProfile() != null)
-        {
-            highlightHelper.StopInteractorHighlight(this);
-        }
-
-        if (GetReticleShape() != null)
-        {
-             reticle.SetDefaultReticleProfile();
-        }
         
-        if (GetTooltipProfile() != null)
+        if(hoverEffects.Count == 0) { return; }
+        foreach (BaseEffectProfileSO effect in hoverEffects)
         {
-            tooltip.Hide();
+            effect.ToggleExecuteAction(false, this);
         }
     }
     private void OnClick(GameObject interactor)
@@ -167,22 +132,5 @@ public class Interactor : MonoBehaviour
     {
         if(!hasCustomKeyInteraction) { return; }
         // Pressed the selected custom interaction button while hovering on the object.
-    }
-    
-    // Get hover profiles
-    public HighlightProfileSO GetHighlightProfile()
-    {
-        if(!hasHighlightProfile) { return null; }
-        return hoverHighlightProfile;
-    }
-    public ReticleProfileSO GetReticleShape()
-    {
-        if(!hasReticleProfile) { return null; }
-        return hoverReticleProfile;
-    }
-    public TooltipProfileSO GetTooltipProfile()
-    {
-        if(!hasTooltipProfile) { return null; }
-        return hoverTooltipProfile;
     }
 }
