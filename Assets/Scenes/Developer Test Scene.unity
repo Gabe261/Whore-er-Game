@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72304e1f5edc8be46916fbc68d63973c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultReticleProfile: {fileID: 11400000, guid: 1b7d1f13bb30796458bc2dd1f74532f9, type: 2}
 --- !u!1 &217059247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532195743}
   - component: {fileID: 532195744}
+  - component: {fileID: 532195745}
   m_Layer: 0
   m_Name: GalssBottleGroup
   m_TagString: Untagged
@@ -1901,12 +1903,33 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 11400000, guid: 8c977d34769aaec4faf93736c575747e, type: 2}
+  hoverHighlightProfile: {fileID: 11400000, guid: e502c1afc41e0d043a4237d20ffc7ea6, type: 2}
   hasHighlightProfile: 1
-  hoverReticleShape: 1
-  hasReticleShape: 1
+  hoverReticleProfile: {fileID: 11400000, guid: e473ef4f68123a046bf0e9a9eecebc25, type: 2}
+  hasReticleProfile: 1
   hoverTooltipProfile: {fileID: 0}
   hasTooltipProfile: 0
+--- !u!65 &532195745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532195742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &543509713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,6 +1940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543509714}
   - component: {fileID: 543509715}
+  - component: {fileID: 543509716}
   m_Layer: 0
   m_Name: StickGroup
   m_TagString: Untagged
@@ -1972,12 +1996,33 @@ MonoBehaviour:
   OnCustomKeyPressed:
     m_PersistentCalls:
       m_Calls: []
-  hoverHighlightProfile: {fileID: 11400000, guid: 8c977d34769aaec4faf93736c575747e, type: 2}
+  hoverHighlightProfile: {fileID: 11400000, guid: e502c1afc41e0d043a4237d20ffc7ea6, type: 2}
   hasHighlightProfile: 1
-  hoverReticleShape: 1
-  hasReticleShape: 1
+  hoverReticleProfile: {fileID: 0}
+  hasReticleProfile: 0
   hoverTooltipProfile: {fileID: 0}
   hasTooltipProfile: 0
+--- !u!65 &543509716
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543509713}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!43 &665798576
 Mesh:
   m_ObjectHideFlags: 0
@@ -9796,6 +9841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1926109242}
   - component: {fileID: 1926109243}
+  - component: {fileID: 1926109244}
   m_Layer: 0
   m_Name: MedicalGroup
   m_TagString: Untagged
@@ -9854,10 +9900,31 @@ MonoBehaviour:
       m_Calls: []
   hoverHighlightProfile: {fileID: 11400000, guid: a3f39ef2682844040b703e141bbf1b99, type: 2}
   hasHighlightProfile: 1
-  hoverReticleShape: 2
-  hasReticleShape: 1
+  hoverReticleProfile: {fileID: 0}
+  hasReticleProfile: 0
   hoverTooltipProfile: {fileID: 0}
   hasTooltipProfile: 0
+--- !u!65 &1926109244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926109241}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!43 &1928344952
 Mesh:
   m_ObjectHideFlags: 0
@@ -10845,28 +10912,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4498971741856035024}
   m_Mesh: {fileID: 4913693991774066596, guid: 61a117646eeebaf4889cfe66ee0455bb, type: 3}
---- !u!64 &187089145429307730
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917719929218530464}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5165471690063771405, guid: 8362b245b53deb448a608cd353293d63, type: 3}
 --- !u!1 &241838505840930177
 GameObject:
   m_ObjectHideFlags: 0
@@ -10943,7 +10988,6 @@ GameObject:
   - component: {fileID: 645478641613727411}
   - component: {fileID: 4565217301887183126}
   - component: {fileID: 1782897391500991964}
-  - component: {fileID: 6670575202457171030}
   m_Layer: 0
   m_Name: Midicine_01
   m_TagString: Untagged
@@ -11140,7 +11184,6 @@ GameObject:
   - component: {fileID: 544734411884177701}
   - component: {fileID: 3467932907413612160}
   - component: {fileID: 1712605715511005770}
-  - component: {fileID: 7286988853951710301}
   m_Layer: 0
   m_Name: GlassBottle_04 (1)
   m_TagString: Untagged
@@ -11263,28 +11306,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1599360418}
   m_LocalEulerAnglesHint: {x: 0, y: 137.828, z: 0}
---- !u!64 &1450371253201748654
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456999409225205512}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2284871089339098121, guid: 799e286c04e779c4db52af8c1f71cb20, type: 3}
 --- !u!1 &1456999409225205512
 GameObject:
   m_ObjectHideFlags: 0
@@ -11296,7 +11317,6 @@ GameObject:
   - component: {fileID: 2266328291552189874}
   - component: {fileID: 2944305254896620055}
   - component: {fileID: 1096821459818194653}
-  - component: {fileID: 1450371253201748654}
   m_Layer: 0
   m_Name: WoodStick_01
   m_TagString: Untagged
@@ -11552,7 +11572,6 @@ GameObject:
   - component: {fileID: 1285439808225781274}
   - component: {fileID: 2772272491886717375}
   - component: {fileID: 116495925235309941}
-  - component: {fileID: 187089145429307730}
   m_Layer: 0
   m_Name: MidicineBag_01
   m_TagString: Untagged
@@ -11734,50 +11753,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456999409225205512}
   m_Mesh: {fileID: 2284871089339098121, guid: 799e286c04e779c4db52af8c1f71cb20, type: 3}
---- !u!64 &3177301829006591179
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042913722454979337}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3837301223530761238, guid: 0e54a2bf963477c478b28b86afcf2519, type: 3}
---- !u!64 &3205469344667794540
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5014776879839693742}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3837301223530761238, guid: 0e54a2bf963477c478b28b86afcf2519, type: 3}
 --- !u!33 &3315711720168173902
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11873,7 +11848,6 @@ GameObject:
   - component: {fileID: 4493850222899821106}
   - component: {fileID: 716784148497298839}
   - component: {fileID: 3320965106524684637}
-  - component: {fileID: 9038949078885807190}
   m_Layer: 0
   m_Name: WoodLog_02
   m_TagString: Untagged
@@ -11955,8 +11929,8 @@ MonoBehaviour:
       m_Calls: []
   hoverHighlightProfile: {fileID: 0}
   hasHighlightProfile: 0
-  hoverReticleShape: 2
-  hasReticleShape: 1
+  hoverReticleProfile: {fileID: 0}
+  hasReticleProfile: 0
   hoverTooltipProfile: {fileID: 0}
   hasTooltipProfile: 0
 --- !u!4 &4493850222899821106
@@ -11985,7 +11959,6 @@ GameObject:
   - component: {fileID: 3829289327929141866}
   - component: {fileID: 183387336953177551}
   - component: {fileID: 2697500623170359557}
-  - component: {fileID: 8664322012829906165}
   m_Layer: 0
   m_Name: WoodStick_02
   m_TagString: Untagged
@@ -12040,8 +12013,8 @@ MonoBehaviour:
       m_Calls: []
   hoverHighlightProfile: {fileID: 0}
   hasHighlightProfile: 0
-  hoverReticleShape: 0
-  hasReticleShape: 0
+  hoverReticleProfile: {fileID: 11400000, guid: 66007bdef61778b4bab4c19075a94138, type: 2}
+  hasReticleProfile: 1
   hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
   hasTooltipProfile: 1
 --- !u!1 &4641009354278331017
@@ -12055,7 +12028,6 @@ GameObject:
   - component: {fileID: 5414450211184850995}
   - component: {fileID: 8974590295194285974}
   - component: {fileID: 6586744369454891868}
-  - component: {fileID: 7307559014472170631}
   m_Layer: 0
   m_Name: MidKit_01
   m_TagString: Untagged
@@ -12116,32 +12088,10 @@ MonoBehaviour:
       m_Calls: []
   hoverHighlightProfile: {fileID: 11400000, guid: a8ffeba1825740d4fb7aabbaa69a0ab8, type: 2}
   hasHighlightProfile: 1
-  hoverReticleShape: 0
-  hasReticleShape: 0
+  hoverReticleProfile: {fileID: 11400000, guid: a455077e12a574d43b5836bb627a8bd2, type: 2}
+  hasReticleProfile: 1
   hoverTooltipProfile: {fileID: 0}
   hasTooltipProfile: 0
---- !u!64 &4907931539720547591
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7509890731144407381}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2739232906244281380, guid: bcfa17371bf775c4a8c608215b4fedb4, type: 3}
 --- !u!1 &5014776879839693742
 GameObject:
   m_ObjectHideFlags: 0
@@ -12153,7 +12103,6 @@ GameObject:
   - component: {fileID: 5680096500263129364}
   - component: {fileID: 8753900609596333745}
   - component: {fileID: 6816459103464876667}
-  - component: {fileID: 3205469344667794540}
   m_Layer: 0
   m_Name: GlassBottle_04 (2)
   m_TagString: Untagged
@@ -12172,7 +12121,6 @@ GameObject:
   - component: {fileID: 5684016595599194872}
   - component: {fileID: 8741053047315264861}
   - component: {fileID: 6821407688849785239}
-  - component: {fileID: 6750841818084666800}
   m_Layer: 0
   m_Name: MidicineBag_01 (1)
   m_TagString: Untagged
@@ -12191,7 +12139,6 @@ GameObject:
   - component: {fileID: 5672239627691321779}
   - component: {fileID: 8725737980039292438}
   - component: {fileID: 6844621785278747356}
-  - component: {fileID: 3177301829006591179}
   m_Layer: 0
   m_Name: GlassBottle_04
   m_TagString: Untagged
@@ -12320,8 +12267,8 @@ MonoBehaviour:
       m_Calls: []
   hoverHighlightProfile: {fileID: 0}
   hasHighlightProfile: 0
-  hoverReticleShape: 0
-  hasReticleShape: 0
+  hoverReticleProfile: {fileID: 0}
+  hasReticleProfile: 0
   hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
   hasTooltipProfile: 1
 --- !u!4 &5672239627691321779
@@ -12422,8 +12369,8 @@ MonoBehaviour:
       m_Calls: []
   hoverHighlightProfile: {fileID: 0}
   hasHighlightProfile: 0
-  hoverReticleShape: 0
-  hasReticleShape: 0
+  hoverReticleProfile: {fileID: 11400000, guid: 66007bdef61778b4bab4c19075a94138, type: 2}
+  hasReticleProfile: 1
   hoverTooltipProfile: {fileID: 11400000, guid: 89b890bc4c608bf43b1252ce6ca44c7c, type: 2}
   hasTooltipProfile: 1
 --- !u!1 &5923997858967748753
@@ -12514,50 +12461,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6670575202457171030
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269903488938195977}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4189743510123965185, guid: 04dc573e0ee7d194fab141e31840c075, type: 3}
---- !u!64 &6750841818084666800
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5019963646326677570}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5165471690063771405, guid: 8362b245b53deb448a608cd353293d63, type: 3}
 --- !u!23 &6816459103464876667
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12746,32 +12649,10 @@ MonoBehaviour:
       m_Calls: []
   hoverHighlightProfile: {fileID: 11400000, guid: a3f39ef2682844040b703e141bbf1b99, type: 2}
   hasHighlightProfile: 1
-  hoverReticleShape: 2
-  hasReticleShape: 1
+  hoverReticleProfile: {fileID: 11400000, guid: e473ef4f68123a046bf0e9a9eecebc25, type: 2}
+  hasReticleProfile: 1
   hoverTooltipProfile: {fileID: 0}
   hasTooltipProfile: 0
---- !u!64 &6963861774525153419
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8119819836517565447}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1913694535179016590, guid: 3f10244ac2b50fa4da46b3da357f3462, type: 3}
 --- !u!4 &7166262163679228911
 Transform:
   m_ObjectHideFlags: 0
@@ -12787,50 +12668,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543509714}
   m_LocalEulerAnglesHint: {x: 0, y: 28.538, z: 0}
---- !u!64 &7286988853951710301
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920029149919835039}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3837301223530761238, guid: 0e54a2bf963477c478b28b86afcf2519, type: 3}
---- !u!64 &7307559014472170631
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4641009354278331017}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -329561494418221100, guid: b56f9b758a75ab2448bbebefc0dc33cd, type: 3}
 --- !u!1 &7509890731144407381
 GameObject:
   m_ObjectHideFlags: 0
@@ -12842,7 +12679,6 @@ GameObject:
   - component: {fileID: 7166262163679228911}
   - component: {fileID: 6114893156210392138}
   - component: {fileID: 8302528456671086720}
-  - component: {fileID: 4907931539720547591}
   m_Layer: 0
   m_Name: WoodLog_04
   m_TagString: Untagged
@@ -12956,8 +12792,8 @@ MonoBehaviour:
       m_Calls: []
   hoverHighlightProfile: {fileID: 11400000, guid: a8ffeba1825740d4fb7aabbaa69a0ab8, type: 2}
   hasHighlightProfile: 1
-  hoverReticleShape: 0
-  hasReticleShape: 0
+  hoverReticleProfile: {fileID: 11400000, guid: 1b7d1f13bb30796458bc2dd1f74532f9, type: 2}
+  hasReticleProfile: 1
   hoverTooltipProfile: {fileID: 0}
   hasTooltipProfile: 0
 --- !u!1 &8119819836517565447
@@ -12971,7 +12807,6 @@ GameObject:
   - component: {fileID: 8927460139502182077}
   - component: {fileID: 5497608884983140632}
   - component: {fileID: 7759589384288167378}
-  - component: {fileID: 6963861774525153419}
   m_Layer: 0
   m_Name: WaterBottle_02
   m_TagString: Untagged
@@ -13024,28 +12859,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8664322012829906165
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4498971741856035024}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4913693991774066596, guid: 61a117646eeebaf4889cfe66ee0455bb, type: 3}
 --- !u!33 &8725737980039292438
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13093,28 +12906,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4641009354278331017}
   m_Mesh: {fileID: -329561494418221100, guid: b56f9b758a75ab2448bbebefc0dc33cd, type: 3}
---- !u!64 &9038949078885807190
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3825399258038706312}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7664700598078760368, guid: 966296b4b8c94c54b82e84f7888c4f73, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

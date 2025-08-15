@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(UIDocument))]
 public class Reticle : MonoBehaviour
 {
+    [SerializeField] private ReticleProfileSO defaultReticleProfile;
+    
     private VisualElement root, reticle;
     
     private Dictionary<ReticleShapeTypes, string> reticleShapeDictionary = new Dictionary<ReticleShapeTypes, string>();
@@ -23,12 +25,17 @@ public class Reticle : MonoBehaviour
     /// Changes the shape of the reticle UI
     /// </summary>
     /// <param name="reticleShapeType"></param>
-    public void SetReticleShape(ReticleShapeTypes reticleShapeType)
+    public void SetReticleShape(ReticleProfileSO reticleProfile)
     {
         RemoveAllReticleStyles();
-        if(reticleShapeType == ReticleShapeTypes.None) { Hide(); return; }
-        reticle.AddToClassList(reticleShapeDictionary[reticleShapeType]);
+        if(reticleProfile.reticleShape == ReticleShapeTypes.None) { Hide(); return; }
+        reticle.AddToClassList(reticleShapeDictionary[reticleProfile.reticleShape]);
         Show();
+    }
+
+    public void SetDefaultReticleProfile()
+    {
+        SetReticleShape(defaultReticleProfile);
     }
     
     /// <summary>

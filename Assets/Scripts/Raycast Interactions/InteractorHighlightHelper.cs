@@ -4,32 +4,34 @@ using UnityEngine;
 
 public class InteractorHighlightHelper : MonoBehaviour
 {
-    private Dictionary<Interactor, Coroutine> interactorDictionary;
+    private Dictionary<Interactor, List<Coroutine>> interactorDictionary;
 
     private void Start()
     {
-        interactorDictionary = new Dictionary<Interactor, Coroutine>();
+        interactorDictionary = new Dictionary<Interactor, List<Coroutine>>();
     }
     
-    public void StartInteractorHighlight(GameObject gameObject, HighlightProfileSO highlightProfile)
+    public void StartInteractorHighlight(Interactor interactor, HighlightProfileSO highlightProfile)
     {
-        Coroutine objectsHighlightCoroutine = null;
-
-        if (gameObject.TryGetComponent(out Interactor interactor))
+        List<Coroutine> objectsHighlightCoroutine = new List<Coroutine>();
+        
+        if (interactorDictionary.ContainsKey(interactor)) { Debug.Log("Already highlighting"); return; }
+        
+        List<Material> materials = interactor.GetMaterials();
+        foreach (Material material in materials)
         {
-            if (interactorDictionary.ContainsKey(interactor)) { Debug.Log("Already highlighting"); return; }
-            objectsHighlightCoroutine = StartCoroutine(HighlightObject(interactor, highlightProfile));
-            interactorDictionary.Add(interactor, objectsHighlightCoroutine);
+            objectsHighlightCoroutine.Add(StartCoroutine(HighlightObject(material, highlightProfile)));
         }
+        interactorDictionary.Add(interactor, objectsHighlightCoroutine);
     }
 
-    private IEnumerator HighlightObject(Interactor interactor, HighlightProfileSO highlightProfile)
+    private IEnumerator HighlightObject(Material material, HighlightProfileSO highlightProfile)
     {
-        Material material = interactor.gameObject.GetComponent<MeshRenderer>().material;
         highlightProfile.originalColor = material.color;
 
         yield return new WaitForEndOfFrame();
 
+        bool doBlinking = highlightProfile.isBlinking;
         float duration = highlightProfile.speed;
         Color originalColor = material.color;
         Color targetColor = highlightProfile.color;
@@ -51,34 +53,34 @@ public class InteractorHighlightHelper : MonoBehaviour
                 originalColor = targetColor;
                 targetColor = tempColor;
                 returnRate++;
-                if(!highlightProfile.isBlinking && returnRate >= 2) { doLoop = false; }
+                if(!doBlinking && returnRate >= 2) { doLoop = false; }
             }
         }
     }
     
-    public void StopInteractorHighlight(GameObject gameObject)
+    public void StopInteractorHighlight(Interactor interactor)
     {
-        if (gameObject.TryGetComponent(out Interactor interactor))
+        if (interactorDictionary.TryGetValue(interactor, out List<Coroutine> highlightCoroutines))
         {
-            if (interactorDictionary.TryGetValue(interactor, out Coroutine highlightCoroutine))
+            if (highlightCoroutines.Count > 0)
             {
-                if (highlightCoroutine != null)
-                {
-                    StopCoroutine(highlightCoroutine);
-                }
-                else
-                {
-                    Debug.Log("Interactor Highlight Coroutine Not Found");
-                }
-                
-                interactorDictionary.Remove(interactor);
-                Material material = interactor.gameObject.GetComponent<MeshRenderer>().material;
-                material.color = interactor.GetHighlightProfile().originalColor;
+                foreach(Coroutine coroutine in highlightCoroutines)
+                    StopCoroutine(coroutine);
             }
             else
             {
-                Debug.Log("Interactor is not highlighting");
+                Debug.Log("Interactor Highlight Coroutine Not Found");
             }
+            
+            interactorDictionary.Remove(interactor);
+            foreach (Material material in interactor.GetMaterials())
+            {
+                material.color = interactor.GetHighlightProfile().originalColor;
+            }
+        }
+        else
+        {
+            Debug.Log("Interactor is not highlighting");
         }
     }
 }

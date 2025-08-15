@@ -29,11 +29,11 @@ public class InteractorEditor : Editor
         
         EditorGUILayout.LabelField("Choose hover effects for this object:", EditorStyles.label);
         SerializedProperty hasHighlights = serializedObject.FindProperty("hasHighlightProfile");
-        SerializedProperty hasReticle = serializedObject.FindProperty("hasReticleShape");
+        SerializedProperty hasReticle = serializedObject.FindProperty("hasReticleProfile");
         SerializedProperty hasTooltip = serializedObject.FindProperty("hasTooltipProfile");
         
         SerializedProperty highlightProfile = serializedObject.FindProperty("hoverHighlightProfile");
-        SerializedProperty reticleShape = serializedObject.FindProperty("hoverReticleShape");
+        SerializedProperty reticleProfile = serializedObject.FindProperty("hoverReticleProfile");
         SerializedProperty tooltipProfile = serializedObject.FindProperty("hoverTooltipProfile");
         
         EditorGUILayout.BeginHorizontal();
@@ -50,7 +50,7 @@ public class InteractorEditor : Editor
         }
         if (hasReticle.boolValue)
         {
-             EditorGUILayout.PropertyField(reticleShape);
+             EditorGUILayout.PropertyField(reticleProfile);
              EditorGUILayout.Space(2);
         }
         if (hasTooltip.boolValue)

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,10 +28,16 @@ public class Interactor : MonoBehaviour
     // The highlight profile, reticle shape, and tooltip profile.
     [SerializeField] private HighlightProfileSO hoverHighlightProfile;
     public bool hasHighlightProfile;
-    [SerializeField] private ReticleShapeTypes hoverReticleShape;
-    public bool hasReticleShape;
+    [SerializeField] private ReticleProfileSO hoverReticleProfile;
+    public bool hasReticleProfile;
     [SerializeField] private TooltipProfileSO hoverTooltipProfile;
     public bool hasTooltipProfile;
+
+    private InteractorHighlightHelper highlightHelper;
+    private Reticle reticle;
+    private Tooltip tooltip;
+    
+    private List<MeshRenderer> meshRenderers;
     
     private void Awake()
     {
@@ -47,6 +54,23 @@ public class Interactor : MonoBehaviour
         
         OnInteractionKeyPressed.AddListener(InteractionKeyPressed);
         OnCustomKeyPressed.AddListener(CustomKeyPressed);
+        
+        highlightHelper = FindFirstObjectByType<InteractorHighlightHelper>();
+        reticle = FindFirstObjectByType<Reticle>();
+        tooltip = FindFirstObjectByType<Tooltip>();
+
+        meshRenderers = new List<MeshRenderer>();
+        if (TryGetComponent<MeshRenderer>(out MeshRenderer meshRenderer))
+        {
+            meshRenderers.Add(meshRenderer);
+        }
+        foreach (Transform child in transform)
+        {
+            if (child.TryGetComponent<MeshRenderer>(out MeshRenderer childMeshRenderer))
+            {
+                meshRenderers.Add(childMeshRenderer);
+            }
+        }
     }
     
     // Clean up when this object is disabled.
@@ -60,6 +84,18 @@ public class Interactor : MonoBehaviour
         OnCustomKeyPressed.RemoveListener(CustomKeyPressed);
     }
 
+    public List<MeshRenderer> MeshRenderers => meshRenderers;
+
+    public List<Material> GetMaterials()
+    {
+        List<Material> materials = new List<Material>();
+        foreach (MeshRenderer meshRenderer in meshRenderers)
+        {
+            materials.Add(meshRenderer.material);
+        }
+        return materials;
+    }
+    
     // Has been hovered/clicked checks.
     public bool HasBeenHovered()
     {
@@ -84,19 +120,16 @@ public class Interactor : MonoBehaviour
         
         if (GetHighlightProfile() != null)
         {
-            InteractorHighlightHelper highlightHelper = FindFirstObjectByType<InteractorHighlightHelper>();
-            highlightHelper.StartInteractorHighlight(this.gameObject, GetHighlightProfile());
+            highlightHelper.StartInteractorHighlight(this, GetHighlightProfile());
         }
 
-        if (GetReticleShape() != ReticleShapeTypes.None)
+        if (GetReticleShape() != null)
         {
-            Reticle reticle = FindFirstObjectByType<Reticle>();
             reticle.SetReticleShape(GetReticleShape());
         }
 
         if (GetTooltipProfile() != null)
         {
-            Tooltip tooltip = FindFirstObjectByType<Tooltip>();
             tooltip.HandleDisplayContent(GetTooltipProfile());
         }
     }
@@ -107,16 +140,16 @@ public class Interactor : MonoBehaviour
         isBeingHovered = false;
         if (GetHighlightProfile() != null)
         {
-            InteractorHighlightHelper highlightHelper = FindFirstObjectByType<InteractorHighlightHelper>();
-            highlightHelper.StopInteractorHighlight(this.gameObject);
+            highlightHelper.StopInteractorHighlight(this);
         }
-        
-        Reticle reticle = FindFirstObjectByType<Reticle>();
-        reticle.SetReticleShape(ReticleShapeTypes.Dot);
+
+        if (GetReticleShape() != null)
+        {
+             reticle.SetDefaultReticleProfile();
+        }
         
         if (GetTooltipProfile() != null)
         {
-            Tooltip tooltip = FindFirstObjectByType<Tooltip>();
             tooltip.Hide();
         }
     }
@@ -142,10 +175,10 @@ public class Interactor : MonoBehaviour
         if(!hasHighlightProfile) { return null; }
         return hoverHighlightProfile;
     }
-    public ReticleShapeTypes GetReticleShape()
+    public ReticleProfileSO GetReticleShape()
     {
-        if(!hasReticleShape) { return ReticleShapeTypes.None; }
-        return hoverReticleShape;
+        if(!hasReticleProfile) { return null; }
+        return hoverReticleProfile;
     }
     public TooltipProfileSO GetTooltipProfile()
     {
