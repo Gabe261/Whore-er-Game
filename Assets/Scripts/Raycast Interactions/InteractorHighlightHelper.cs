@@ -58,7 +58,7 @@ public class InteractorHighlightHelper : MonoBehaviour
         }
     }
     
-    public void StopInteractorHighlight(Interactor interactor)
+    public void StopInteractorHighlight(Interactor interactor, HighlightProfileSO highlightProfile)
     {
         if (interactorDictionary.TryGetValue(interactor, out List<Coroutine> highlightCoroutines))
         {
@@ -75,7 +75,7 @@ public class InteractorHighlightHelper : MonoBehaviour
             interactorDictionary.Remove(interactor);
             foreach (Material material in interactor.GetMaterials())
             {
-                // material.color = interactor.GetHighlightProfile().originalColor;
+                material.color = highlightProfile.originalColor;
             }
         }
         else

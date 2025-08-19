@@ -22,20 +22,10 @@ public class HighlightProfileSO : BaseEffectProfileSO
             Debug.LogWarning("No highlightHelper found in the scene!");
             return;
         }
-
-        if (interactor == null)
-        {
-            Debug.LogWarning("YOU ARE MISSING THE INTERACTOR!");
-            return;
-        }
-        else
-        {
-            Debug.Log("The interactor is: " + interactor.name);
-        }
         
         if (doExecute)
             highlightHelper.StartInteractorHighlight(interactor, this);
         else
-            highlightHelper.StopInteractorHighlight(interactor);
+            highlightHelper.StopInteractorHighlight(interactor, this);
     }
 }

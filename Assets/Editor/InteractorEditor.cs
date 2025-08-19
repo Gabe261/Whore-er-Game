@@ -26,10 +26,30 @@ public class InteractorEditor : Editor
         
         // Possible Hover Effects
         EditorGUILayout.LabelField("On Hover Effects", EditorStyles.boldLabel);
+        // Enum dropdown here
         
-        EditorGUILayout.LabelField("Choose hover effects for this object:", EditorStyles.label);
-        SerializedProperty hoverEffectsProp = serializedObject.FindProperty("hoverEffects");
-        EditorGUILayout.PropertyField(hoverEffectsProp, new GUIContent("Hover Effects"), true);
+        // Cast the serialized enum field to your HoverEffects type
+        SerializedProperty effectsProp = serializedObject.FindProperty("effects"); // name of your enum field
+        effectsProp.intValue = (int)(Interactor.HoverEffects)EditorGUILayout.EnumFlagsField(
+            "Select Hover Effects",
+            (Interactor.HoverEffects)effectsProp.intValue
+        );
+
+// Conditionally show extra fields depending on what's selected
+        Interactor.HoverEffects selected = (Interactor.HoverEffects)effectsProp.intValue;
+
+        if (selected.HasFlag(Interactor.HoverEffects.Highlight))
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("highlightProfile"));
+        }
+        if (selected.HasFlag(Interactor.HoverEffects.Reticle))
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("reticleProfile"));
+        }
+        if (selected.HasFlag(Interactor.HoverEffects.Tooltip))
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("tooltipProfile"));
+        }
         
         EditorGUILayout.Space(5);
         

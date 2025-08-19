@@ -25,7 +25,22 @@ public class Interactor : MonoBehaviour
     [SerializeField] private KeyCode customInteractionKey;
     public UnityEvent<GameObject> OnCustomKeyPressed;
     
-    [SerializeField] private List<BaseEffectProfileSO> hoverEffects = new List<BaseEffectProfileSO>();
+    [System.Flags] public enum HoverEffects
+    {
+        None = 0,
+        Highlight = 1 << 0,
+        Reticle = 1 << 1,
+        Tooltip = 1 << 2
+    }
+    
+    [SerializeField] private HoverEffects effects;
+    
+    [SerializeField] private HighlightProfileSO highlightProfile;
+    [SerializeField] private ReticleProfileSO reticleProfile;
+    [SerializeField] private TooltipProfileSO tooltipProfile;
+    
+    [SerializeField] private List<BaseEffectProfileSO> hoverEffects;
+    
     
     private List<MeshRenderer> meshRenderers;
     
@@ -45,6 +60,15 @@ public class Interactor : MonoBehaviour
         OnInteractionKeyPressed.AddListener(InteractionKeyPressed);
         OnCustomKeyPressed.AddListener(CustomKeyPressed);
 
+        // Add the available hover effects
+        hoverEffects = new List<BaseEffectProfileSO>();
+        if (highlightProfile != null)
+            hoverEffects.Add(highlightProfile);
+        if (reticleProfile != null)
+            hoverEffects.Add(reticleProfile);
+        if (tooltipProfile != null)
+            hoverEffects.Add(tooltipProfile);
+        
         meshRenderers = new List<MeshRenderer>();
         if (TryGetComponent<MeshRenderer>(out MeshRenderer meshRenderer))
         {
