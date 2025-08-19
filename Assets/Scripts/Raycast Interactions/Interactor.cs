@@ -39,7 +39,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private ReticleProfileSO reticleProfile;
     [SerializeField] private TooltipProfileSO tooltipProfile;
     
-    [SerializeField] private List<BaseEffectProfileSO> hoverEffects;
+    private List<BaseEffectProfileSO> hoverEffects;
     
     
     private List<MeshRenderer> meshRenderers;
@@ -62,6 +62,7 @@ public class Interactor : MonoBehaviour
 
         // Add the available hover effects
         hoverEffects = new List<BaseEffectProfileSO>();
+        hoverEffects.Clear();
         if (highlightProfile != null)
             hoverEffects.Add(highlightProfile);
         if (reticleProfile != null)
