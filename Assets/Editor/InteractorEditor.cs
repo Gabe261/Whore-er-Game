@@ -17,9 +17,9 @@ public class InteractorEditor : Editor
         
         EditorGUILayout.LabelField("Certified Whore-er Game Component", EditorStyles.centeredGreyMiniLabel);
         
-        GUI.contentColor = new Color(0.8f, 0.8f, 1f);
+        GUI.contentColor = new Color(1, 1, 1);
         GUI.backgroundColor = new Color(1, 1, 1);
-        GUIStyle myBoxStyle = new GUIStyle("Window");
+        GUIStyle myBoxStyle = new GUIStyle("Box");
         myBoxStyle.padding = new RectOffset(10, 10, 10, 10);
         myBoxStyle.margin = new RectOffset(0, 20, 10, 0);
         EditorGUILayout.BeginVertical(myBoxStyle); // Hover effects Box ================================================

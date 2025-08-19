@@ -30,6 +30,7 @@ public class Reticle : MonoBehaviour
         RemoveAllReticleStyles();
         if(reticleProfile.reticleShape == ReticleShapeTypes.None) { Hide(); return; }
         reticle.AddToClassList(reticleShapeDictionary[reticleProfile.reticleShape]);
+        SetBorderColor(reticle, reticleProfile.reticleColor);
         Show();
     }
 
@@ -55,5 +56,13 @@ public class Reticle : MonoBehaviour
     private void Hide()
     {
         root.style.display = DisplayStyle.None;
+    }
+
+    private void SetBorderColor(VisualElement element, Color color)
+    {
+        element.style.borderTopColor = color;
+        element.style.borderBottomColor = color;
+        element.style.borderLeftColor = color;
+        element.style.borderRightColor = color;
     }
 }
